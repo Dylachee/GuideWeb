@@ -46,6 +46,10 @@ INSTALLED_APPS = [
     'django_filters',
     'djoser',
     'corsheaders',
+
+    'apps.users',
+    'apps.tours',
+    'apps.objects',
 ]
 
 MIDDLEWARE = [
