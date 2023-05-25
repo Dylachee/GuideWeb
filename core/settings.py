@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.tours',
     'apps.objects',
+    'apps.fourm'
 ]
 
 MIDDLEWARE = [
