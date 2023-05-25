@@ -1,9 +1,10 @@
 from rest_framework import generics
-from .models import TraditionalFood , Category , Cart , Order
+from .models import TraditionalFood , Category , Cart , Order, Favorite
 from .serializers import (TraditionalFoodSerializer , 
                           CategorySerializer ,
                             CartSerializer , 
-                            OrderSerializer)
+                            OrderSerializer,
+                            FavoriteSerializer)
 
 from rest_framework.permissions import IsAuthenticated
 class TraditionalFoodAPIView(generics.ListCreateAPIView):
@@ -50,4 +51,14 @@ class OrderListCreateAPIView(generics.ListCreateAPIView):
 class OrderRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
+    permission_classes = [IsAuthenticated]
+
+class FavoriteApiView(generics.ListCreateAPIView):
+    queryset = Favorite.objects.all()
+    serializer_class = FavoriteSerializer
+    permission_classes = [IsAuthenticated]
+
+class FavoriteRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Favorite.objects.all()
+    serializer_class = FavoriteSerializer
     permission_classes = [IsAuthenticated]
