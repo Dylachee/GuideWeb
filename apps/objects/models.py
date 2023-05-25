@@ -21,6 +21,13 @@ class TraditionalFood(models.Model):
     def __str__(self):
         return self.name
     
+class Favorite(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    food = models.ForeignKey(TraditionalFood, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.food.name}"
+    
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     food = models.ForeignKey(TraditionalFood, on_delete=models.CASCADE)
