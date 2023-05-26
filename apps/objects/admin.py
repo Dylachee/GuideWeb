@@ -6,5 +6,3 @@ admin.site.register([Category,
                     Cart, 
                     Order , 
                     Favorite])
-
-# Ebal ya eto
