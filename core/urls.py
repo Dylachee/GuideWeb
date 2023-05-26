@@ -27,6 +27,7 @@ urlpatterns = [
 
     path('', include('apps.objects.urls')),
     path('', include('apps.fourm.urls')),
+    path('', include('apps.clothes.urls')),
 ]
 
 if settings.DEBUG:

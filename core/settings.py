@@ -50,7 +50,8 @@ INSTALLED_APPS = [
     'apps.users',
     'apps.tours',
     'apps.objects',
-    'apps.fourm'
+    'apps.fourm',
+    'apps.clothes',
 ]
 
 MIDDLEWARE = [
