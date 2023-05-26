@@ -13,4 +13,3 @@ python-slugify
 django-allauth
 django-rest-auth
 stripe
-
