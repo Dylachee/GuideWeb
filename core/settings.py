@@ -34,9 +34,11 @@ INSTALLED_APPS = [
 
     'apps.users',
     'apps.tours',
-    'apps.objects',
+    'apps.food',
     'apps.fourm',
     'apps.clothes',
+    'apps.favorites',
+    'apps.souvenirs',
 ]
 
 MIDDLEWARE = [

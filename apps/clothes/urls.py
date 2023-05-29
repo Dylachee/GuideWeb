@@ -1,10 +1,9 @@
-from django.urls import path
-from .views import (TraditionalClothingList, 
-                    TraditionalClothingRetrieveUpdateDestroyAPIView)
+from rest_framework.routers import DefaultRouter
+from .views import ClothingViewSet, ClothingCategoryViewSet
 
-urlpatterns = [
-    path('traditional-clothing/', TraditionalClothingList.as_view(), 
-         name='traditional-clothing-list'),
-    path('traditional-clothing/<int:pk>/', TraditionalClothingRetrieveUpdateDestroyAPIView.as_view(), 
-         name='traditional-clothing-detail'),
-]
+
+router = DefaultRouter()
+router.register('clothes', ClothingViewSet)
+router.register('clothes/category', ClothingCategoryViewSet)
+
+urlpatterns = router.urls
