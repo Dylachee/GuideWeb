@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import TraditionalClothing
+from .models import Clothing, ClothingCategory
 
-admin.site.register([TraditionalClothing])
+admin.site.register([Clothing, ClothingCategory])

@@ -25,10 +25,11 @@ urlpatterns = [
     path('', schema_view.with_ui('swagger', cache_timeout=0),
          name='schema-swagger-ui'),
 
-    path('', include('apps.objects.urls')),
+    path('', include('apps.food.urls')),
     path('', include('apps.fourm.urls')),
     path('', include('apps.clothes.urls')),
     path('', include('apps.tours.urls')),
+    path('', include('apps.favorites.urls')),
 ]
 
 if settings.DEBUG:

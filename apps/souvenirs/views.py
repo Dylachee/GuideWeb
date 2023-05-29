@@ -5,13 +5,13 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework import status
 
 from ..favorites.serializers import FavoriteSerializer
-from .models import ClothingCategory, Clothing
-from .serializers import ClothingCategorySerializer, ClothingSerializer
+from .models import Souvenir, SouvenirCategory
+from .serializers import SouvenirSerializer, SouvenirCategorySerializer
 
 
-class ClothingCategoryViewSet(ModelViewSet):
-    queryset = ClothingCategory.objects.all()
-    serializer_class = ClothingCategorySerializer
+class SouvenirCategoryViewSet(ModelViewSet):
+    queryset = SouvenirCategory.objects.all()
+    serializer_class = SouvenirCategorySerializer
 
     def get_permissions(self):
         if self.request.method in ('POST', 'PUT', 'PATCH', 'DELETE'):
@@ -19,8 +19,8 @@ class ClothingCategoryViewSet(ModelViewSet):
         return (AllowAny(),)
 
 
-class ClothingViewSet(ModelViewSet):
-    queryset = Clothing.objects.all()
+class SouvenirViewSet(ModelViewSet):
+    queryset = Souvenir.objects.all()
 
     def get_permissions(self):
         if self.action in ('favorite',):
@@ -32,7 +32,7 @@ class ClothingViewSet(ModelViewSet):
     def get_serializer_class(self):
         if self.action in ('favorite',):
             return FavoriteSerializer
-        return ClothingSerializer
+        return SouvenirSerializer
 
     @action(['POST'], detail=True)
     def favorite(self, request, pk=None):

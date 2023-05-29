@@ -1,15 +1,15 @@
 from django.db import models
 
 
-class ClothingCategory(models.Model):
+class FoodCategory(models.Model):
     name = models.CharField(max_length=128)
 
 
-class Clothing(models.Model):
+class Food(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    image = models.ImageField(upload_to='clothes/')
-    category = models.ForeignKey(ClothingCategory, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='food/')
+    category = models.ForeignKey(FoodCategory, on_delete=models.CASCADE)
     price = models.FloatField(default=0.0)
 
     def __str__(self):

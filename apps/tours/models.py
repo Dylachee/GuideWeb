@@ -2,7 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-class Category(models.Model):
+class TourCategory(models.Model):
     name = models.CharField(max_length=50)
 
     def __str__(self):
@@ -12,7 +12,7 @@ class Category(models.Model):
 class Tour(models.Model):
     name = models.CharField(max_length=50)
     image = models.ImageField(upload_to='tours')
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(TourCategory, on_delete=models.CASCADE)
     season = models
     time = models.IntegerField()
     distance = models.IntegerField()
@@ -27,15 +27,8 @@ class Review(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
     comment = models.TextField()
-    stars = models.PositiveSmallIntegerField(validators=[MaxValueValidator(5), MinValueValidator(1)])
+    stars = models.PositiveSmallIntegerField(
+        validators=[MaxValueValidator(5), MinValueValidator(1)])
 
     def __str__(self):
         return self.stars
-
-
-class Like(models.Model):
-    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
-    tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.tour.name

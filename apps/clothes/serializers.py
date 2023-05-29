@@ -1,7 +1,14 @@
 from rest_framework import serializers
-from .models import TraditionalClothing
+from .models import Clothing, ClothingCategory
 
-class TraditionalClothingSerializer(serializers.ModelSerializer):
+
+class ClothingCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = TraditionalClothing
+        model = ClothingCategory
+        fields = '__all__'
+
+
+class ClothingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Clothing
         fields = '__all__'
