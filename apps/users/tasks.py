@@ -10,8 +10,9 @@ User = get_user_model()
 @shared_task
 def send_registration(user_id, context):
     user = User.objects.get(pk=user_id)
-    domain = context['domain']
-    activation_link = domain + djoser_settings.ACTIVATION_URL.format(**context)
+    # domain = context['domain']
+    activation_link = '127.0.0.1:3000/' + \
+        djoser_settings.ACTIVATION_URL.format(**context)
 
     subject = 'Activate Your Account'
     message = f"""
@@ -32,8 +33,10 @@ def send_registration(user_id, context):
 @shared_task
 def send_reset_password(user_id, context):
     user = User.objects.get(pk=user_id)
-    domain = context['domain']
-    activation_link = domain + djoser_settings.PASSWORD_RESET_CONFIRM_URL.format(**context)
+    # domain = context['domain']
+    domain = '127.0.0.1:3000/'
+    activation_link = domain + \
+        djoser_settings.PASSWORD_RESET_CONFIRM_URL.format(**context)
 
     subject = 'Reset password'
     message = f"""
@@ -56,8 +59,10 @@ def send_reset_password(user_id, context):
 @shared_task
 def send_reset_username(user_id, context):
     user = User.objects.get(pk=user_id)
-    domain = context['domain']
-    activation_link = domain + djoser_settings.USERNAME_RESET_CONFIRM_URL.format(**context)
+    # domain = context['domain']
+    domain = '127.0.0.1:3000/'
+    activation_link = domain + \
+        djoser_settings.USERNAME_RESET_CONFIRM_URL.format(**context)
 
     subject = 'Reset username'
     message = f"""
